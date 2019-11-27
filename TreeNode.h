@@ -1,8 +1,11 @@
+#include <iostream>
+using namespace std;
+
 class TreeNode{
   public:
     TreeNode();
-    TreeNode(int k); //k is the key which is also the value of the data
-    ~TreeNode(); //when creatinga template class, the destructor must be virtual
+    TreeNode(Student s); //k is the key which is also the value of the data
+    ~TreeNode(); //when creating a template class, the destructor must be virtual
 
     int key;
     TreeNode *left;
@@ -16,8 +19,8 @@ TreeNode::TreeNode(){
   right = NULL;
 }
 
-TreeNode::TreeNode(int k){
-  key= k;
+TreeNode::TreeNode(Student s){
+  s.getID() = k;
   left = NULL;
   right = NULL;
 }
