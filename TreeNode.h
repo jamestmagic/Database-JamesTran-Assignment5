@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Student.h"
 using namespace std;
 
 class TreeNode{
@@ -14,13 +15,13 @@ class TreeNode{
 };
 
 TreeNode::TreeNode(){
-  key = NULL;
+  key = 0;
   left = NULL;
   right = NULL;
 }
 
 TreeNode::TreeNode(Student s){
-  s.getID() = k;
+  key = s.getID();
   left = NULL;
   right = NULL;
 }

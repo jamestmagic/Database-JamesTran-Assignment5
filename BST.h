@@ -1,5 +1,6 @@
 #include <iostream>
 #include "TreeNode.h"
+//#include "Student.h"
 using namespace std;
 
 
@@ -12,7 +13,7 @@ class BST{
     ~BST();
 
     bool search(int value);
-    void insert(int value);
+    void insert(Student s);
 
     //delete placeholder
     bool deleteNode(int key);
@@ -73,8 +74,8 @@ TreeNode* BST::getMin(){
 }
 
 
-void BST::insert(int value){
-  TreeNode *node = new TreeNode(value);
+void BST::insert(Student s){
+  TreeNode *node = new TreeNode(s);
 
   if(root == NULL){
     //empty TreeNode
@@ -87,7 +88,7 @@ void BST::insert(int value){
 
     while(true /*or curr != NULL*/){
       parent = current;
-      if(value<current->key){//going left
+      if(s.getID()<current->key){//going left
         current = current->left;
         if(current == NULL){
           //found insertion point
@@ -136,9 +137,9 @@ bool BST::deleteNode(int key){
   bool isLeft = true;
 
   //look for node
-  while(current->key != value){
+  while(current->key != key){
     parent = current;
-    if(value < current->key){
+    if(key < current->key){
       isLeft = true;
       current = current->left;
     }
@@ -156,7 +157,7 @@ bool BST::deleteNode(int key){
   //check different cases
 
   //no children
-  if(curren->left == NULL && current->right == NULL){
+  if(current->left == NULL && current->right == NULL){
     if(current == root){
       root = NULL;
     }
