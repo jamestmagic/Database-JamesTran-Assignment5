@@ -21,7 +21,7 @@ Student::Student(){ //default constructor
   advisorID = 0;
 }
 
-Student::Student(int sID, string n, string l, string m, double g, int aID){ //destructor
+Student::Student(int sID, string n, string l, string m, double g, int aID){ //overloaded constructor
   studentID = sID;
   name = n;
   level = l;
@@ -30,14 +30,18 @@ Student::Student(int sID, string n, string l, string m, double g, int aID){ //de
   advisorID = aID;
 }
 
-Student::~Student(){
-  
+Student::~Student(){ //destructor
+
 }
 
-int Student::getID(){
+int Student::getID(){ //accessor for studentID
   return studentID;
 }
 
-int Student::getAdvisorID(){
+int Student::getAdvisorID(){ //accessor for advisorID
   return advisorID;
+}
+
+void Student::setAdvisorID(int newID){ //mutator for advisorID
+  advisorID = newID;
 }

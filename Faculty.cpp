@@ -4,10 +4,24 @@
 
 using namespace std;
 
-Faculty::Faculty(){ //default constructor
+int facultyID;
+// string name;
+// string level;
+string dept;
+GenStack<int> adviseeIDs;
 
+Faculty::Faculty(){ //default constructor
+  facultyID = 0;
+  // name = "";
+  // level = "";
+  dept = "";
 }
+
 
 Faculty::~Faculty(){ //destructor
 
+}
+
+int Faculty::getID(){ //accessor for facultyID
+  return facultyID;
 }

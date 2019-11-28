@@ -1,6 +1,7 @@
 #include <iostream> //preprocessor directive
 #include <fstream>
 #include "DatabaseImplementation.h"
+#include "BST.h"
 
 using namespace std;
 
@@ -15,7 +16,7 @@ DatabaseImplementation::~DatabaseImplementation(){ //destructor
 
 }
 
-void DatabaseImplementation::menu(){
+void DatabaseImplementation::menu(){ //displays all choices and takes input
   cout << "Enter the number of your choice." << endl;
   cout <<"1. Print all students and their information.(sorted by ascending id #)" << endl;
   cout <<"2. Print all faculty and their information.(sorted by ascending id #)" << endl;
@@ -32,4 +33,21 @@ void DatabaseImplementation::menu(){
   cout <<"13. Rollback" << endl;
   cout <<"14. Exit" << endl;
   cin >> choiceNum;
+}
+
+void DatabaseImplementation::checkForReference(){
+  ifstream studentFileExists("studentTable.bst");
+  ifstream facultyFileExists("facultyTable.bst");
+  if(!studentFileExists){
+    ofstream writeFile1; //starts an out stream to write to a file
+    writeFile1.open("studentTable.bst"); //opens a new .out file
+  }
+  if(!facultyFileExists){
+    ofstream writeFile2; //starts an out stream to write to a file
+    writeFile2.open("facultyTable.bst"); //opens a new .out file
+  }
+}
+
+int DatabaseImplementation::getChoiceNum(){
+  return choiceNum;
 }

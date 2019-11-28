@@ -4,9 +4,9 @@ using namespace std;
 
 class TreeNode{
   public:
-    TreeNode();
-    TreeNode(Student s); //k is the key which is also the value of the data
-    ~TreeNode(); //when creating a template class, the destructor must be virtual
+    TreeNode(); //constructor
+    TreeNode(Student s); //k is the key which is also the value of the data, overloaded constructor
+    ~TreeNode(); //destructor
 
     int key;
     TreeNode *left;
@@ -14,18 +14,18 @@ class TreeNode{
 
 };
 
-TreeNode::TreeNode(){
+TreeNode::TreeNode(){ //constructor
   key = 0;
   left = NULL;
   right = NULL;
 }
 
-TreeNode::TreeNode(Student s){
+TreeNode::TreeNode(Student s){ //overloaded constructor
   key = s.getID();
   left = NULL;
   right = NULL;
 }
 
-TreeNode::~TreeNode(){
+TreeNode::~TreeNode(){ //destructor
 
 }

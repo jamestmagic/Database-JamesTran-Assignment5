@@ -1,55 +1,52 @@
 #include <iostream>
 #include "TreeNode.h"
-//#include "Student.h"
 using namespace std;
 
 
 class BST{
   private:
-    TreeNode *root;
+    TreeNode *root; //root of the BST
 
   public:
-    BST();
-    ~BST();
+    BST(); //constructor
+    ~BST(); //destructor
 
-    bool search(int value);
-    void insert(Student s);
+    bool search(int value); //searches for node given value
+    void insert(Student s); //inserts new node into tree
 
-    //delete placeholder
-    bool deleteNode(int key);
+    bool deleteNode(int key); //deletes node with given key
 
     //helper functions
-    bool isEmpty();
-    TreeNode* getMin();
-    TreeNode* getMax();
-    void printTree();
-    void recPrint(TreeNode *node);
+    bool isEmpty(); //checks if a node is NULL
+    TreeNode* getMin(); //returns the node of largest value in the tree
+    TreeNode* getMax(); //returns the node of least value in the tree
+    void printTree(); //prints the tree from the root
+    void recPrint(TreeNode *node); //prints the tree recursively from given node
 };
 
 
-BST::BST(){
+BST::BST(){ //constructor
   root = NULL;
 }
 
-BST::~BST(){
-
+BST::~BST(){ //destructor
+  delete root;
 }
 
-void BST::recPrint(TreeNode *node){
+void BST::recPrint(TreeNode *node){ //prints the tree recursively from given node
   if(node == NULL){
     return;
   }
-
   recPrint(node->left);
   cout << node->key << endl;
   recPrint(node->right);
 }
 
-void BST::printTree(){
+void BST::printTree(){ //prints the tree from the root
   recPrint(root);
 }
 
-TreeNode* BST::getMax(){
+TreeNode* BST::getMax(){ //returns the node of least value in the tree
   TreeNode *current = root;
   if(current = NULL){
     return NULL;
@@ -61,7 +58,7 @@ TreeNode* BST::getMax(){
   return (current);
 }
 
-TreeNode* BST::getMin(){
+TreeNode* BST::getMin(){ //returns the node of largest value in the tree
   TreeNode *current = root;
   if(current = NULL){
     return NULL;
@@ -74,7 +71,7 @@ TreeNode* BST::getMin(){
 }
 
 
-void BST::insert(Student s){
+void BST::insert(Student s){ //inserts new node into tree
   TreeNode *node = new TreeNode(s);
 
   if(root == NULL){
@@ -106,7 +103,7 @@ void BST::insert(Student s){
   }
 }
 
-bool BST::search(int value){
+bool BST::search(int value){ //searches for node given value
   if(root == NULL){//empty tree
     return false;
   }
@@ -128,7 +125,7 @@ bool BST::search(int value){
   return true;
 }
 
-bool BST::deleteNode(int key){
+bool BST::deleteNode(int key){ //deletes node with given key
   if(root == NULL){
     return false;
   }
